@@ -2,12 +2,30 @@
 {% block content %}
 <div class="container">
     <form method="get">
-        <input type="number" name="value">
-        <button type="submit">Adicionar</button>
+        <br/>
+        <input type="number" name="value" placeholder="type value" required>
+        <input type="number" name="latitude" step="0.01" placeholder="type lat" required>
+        <input type="number" name="length" step="0.01" placeholder="type len" required>
+        
+        <label for="grounds">Ground type: </label>
+        <select name="grounds" >
+            <option value="wet">wet</option>
+            <option value="hilly">hilly</option>
+            <option value="rocky">rocky</option>
+            <option value="dry">dry</option>
+        </select>
+
+        <button type="submit">Add</button>
+
     </form>
     {% for measure in measures %}
     <ul class="list-group">
-        <li class="list-group-item">{{measure.type}} = {{measure.value}}</li>
+        <li class="list-group-item">
+            {{measure.type}} = {{measure.value}} 
+            latitude = {{measure.latitude}} 
+            length = {{measure.length}} 
+            ground = {{measure.ground}}
+        </li>
     </ul>
     {% endfor %}
 </div>
